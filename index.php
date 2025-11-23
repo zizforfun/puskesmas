@@ -29,7 +29,7 @@
         <li class="nav-item"><a class="nav-link active text-success" href="#">Beranda</a></li>
         <li class="nav-item"><a class="nav-link" href="ambilantrian.php">Ambil Antrian</a></li>
         <li class="nav-item"><a class="nav-link" href="cek_antrian.php">Cek Antrian</a></li>
-        <li class="nav-item"><a class="nav-link" href="admin_login.php">Admin</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="admin_login.php">Admin</a></li> -->
       </ul>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <?php
-require "../config/koneksi.php";
+include "../koneksi/koneksi.php";
 
 $nama_pasien   = $_POST['nama_pasien'];
 $umur          = $_POST['umur'];
@@ -37,7 +37,7 @@ $sql_insert = "INSERT INTO antrian
 $query = mysqli_query($koneksi, $sql_insert);
 
 if ($query) {
-    header("Location: ../ambilantrian.php?msg=Berhasil! Nomor Antrian Anda: $no_antrian");
+    header("Location: ../index.php?msg=Berhasil! Nomor Antrian Anda: $no_antrian");
 } else {
     echo "Error: " . mysqli_error($koneksi);
 }
