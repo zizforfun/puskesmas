@@ -86,3 +86,18 @@ h1, h2, h3, h4, h5 {
 .footer .bg-dark {
     background-color: #0b9043 !important;
 }
+
+        /* Pusatkan tab */
+        .nav-tabs {
+            justify-content: center;
+        }
+        /* Animasi fade in untuk tab content */
+        .tab-pane {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease-in-out;
+        }
+        .tab-pane.show.active {
+            opacity: 1;
+            transform: translateY(0);
+        }

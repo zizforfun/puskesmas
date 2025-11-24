@@ -7,13 +7,14 @@ $msg = isset($_GET['msg']) ? $_GET['msg'] : "";
 <head>
     <meta charset="UTF-8">
     <title>Ambil Antrian</title>
+    <link href="style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body style="background-color: #e9f5ef;">
 
 <div class="container mt-5">
-    <div class="col-lg-6 mx-auto">
+    <div class="col-lg-8 mx-auto">
         <div class="card shadow">
             <div class="card-body">
 
@@ -23,65 +24,62 @@ $msg = isset($_GET['msg']) ? $_GET['msg'] : "";
                     <div class="alert alert-info text-center"><?= htmlspecialchars($msg) ?></div>
                 <?php endif; ?>
 
-                <form action="logic/proses_ambil.php" method="POST">
-                    <div class="mb-3">
-                        <label class="form-label">No. Pasien</label>
-                        <input type="text" name="no_pasien" class="form-control" maxlength="11" required>
+                <!-- Tab Navigation -->
+                <ul class="nav nav-tabs" id="poliTab" role="tablist" d-flex justify-content-center align-items-center>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="gigi-tab" data-bs-toggle="tab" data-bs-target="#gigi" type="button" role="tab">Poli Gigi</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="anak-tab" data-bs-toggle="tab" data-bs-target="#anak" type="button" role="tab">Poli Anak</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="umum-tab" data-bs-toggle="tab" data-bs-target="#umum" type="button" role="tab">Poli Umum</button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content mt-3" id="poliTabContent">
+
+                    <!-- Poli Gigi -->
+                    <div class="tab-pane fade show active" id="gigi" role="tabpanel">
+                        <form action="logic/proses_ambil.php" method="POST">
+                            <input type="hidden" name="poli" value="G">
+                            <?php include 'form_pasien.php'; ?>
+                            <div class="d-grid mt-3">
+                                <button type="submit" class="btn btn-success">Daftar Poli Gigi</button>
+                            </div>
+                        </form>
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">NIK</label>
-                        <input type="text" name="NIK" class="form-control" maxlength="20" required>
+                    <!-- Poli Anak -->
+                    <div class="tab-pane fade" id="anak" role="tabpanel">
+                        <form action="logic/proses_ambil.php" method="POST">
+                            <input type="hidden" name="poli" value="A">
+                            <?php include 'form_pasien.php'; ?>
+                            <div class="d-grid mt-3">
+                                <button type="submit" class="btn btn-primary">Daftar Poli Anak</button>
+                            </div>
+                        </form>
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Nama Lengkap</label>
-                        <input type="text" name="nama_lengkap" class="form-control" maxlength="255" required>
+                    <!-- Poli Umum -->
+                    <div class="tab-pane fade" id="umum" role="tabpanel">
+                        <form action="logic/proses_ambil.php" method="POST">
+                            <input type="hidden" name="poli" value="U">
+                            <?php include 'form_pasien.php'; ?>
+                            <div class="d-grid mt-3">
+                                <button type="submit" class="btn btn-info">Daftar Poli Umum</button>
+                            </div>
+                        </form>
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Tanggal Lahir</label>
-                        <input type="date" name="tanggal_lahir" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Jenis Kelamin</label>
-                        <select name="Jenis_Kelamin" class="form-control" required>
-                            <option value="">-- Pilih --</option>
-                            <option value="Laki-laki">Laki-laki</option>
-                            <option value="Perempuan">Perempuan</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Umur</label>
-                        <input type="number" name="umur" class="form-control" min="0" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Alamat</label>
-                        <textarea name="alamat" class="form-control" rows="3" required></textarea>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Status Pernikahan</label>
-                        <select name="status_pernikahan" class="form-control" required>
-                            <option value="">-- Pilih --</option>
-                            <option value="Belum Menikah">Belum Menikah</option>
-                            <option value="Menikah">Menikah</option>
-                            <option value="Cerai">Cerai</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">No. HP</label>
-                        <input type="text" name="no_hp" class="form-control" maxlength="15" required>
-                    </div>
-
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-success">Ambil Antrian</button>
-                    </div>
-                </form>
+                </div>
+                <!-- Tombol Kembali ke Menu Utama -->
+                <div class="text-center mt-4" >
+                    <a href="index.php" class="btn btn-outline-secondary">
+                        ⬅ Kembali ke Menu Utama
+                    </a>
+                </div>
 
             </div>
         </div>
