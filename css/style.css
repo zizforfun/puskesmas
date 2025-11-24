@@ -1,0 +1,124 @@
+/* === Global === */
+body {
+  background: linear-gradient(135deg, #f0f4f8, #f1f8e9);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+h1, h3 {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  font-weight: 700;
+}
+
+/* === Card === */
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.card-header {
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+/* === Table (untuk antrian.php) === */
+table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+table thead {
+  background: #f8f9fa;
+}
+table tbody tr:hover {
+  background-color: #e9f7ef;
+}
+
+/* === Buttons === */
+.btn {
+  border-radius: 25px;
+  padding: 10px 22px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-success {
+  background-color: #43a047;
+  border: none;
+}
+.btn-success:hover {
+  background-color: #2e7d32;
+  transform: scale(1.05);
+}
+.btn-primary {
+  background-color: #1e88e5;
+  border: none;
+}
+.btn-primary:hover {
+  background-color: #1565c0;
+  transform: scale(1.05);
+}
+.btn-danger {
+  background-color: #e53935;
+  border: none;
+}
+.btn-danger:hover {
+  background-color: #c62828;
+  transform: scale(1.05);
+}
+.btn-info {
+  background-color: #29b6f6;
+  border: none;
+}
+.btn-info:hover {
+  background-color: #0288d1;
+  transform: scale(1.05);
+}
+.btn-outline-secondary {
+  border-radius: 20px;
+  padding: 8px 20px;
+}
+.btn-outline-secondary:hover {
+  background-color: #198754;
+  color: #fff;
+}
+
+/* === Tabs (untuk ambilantrian.php) === */
+.nav-tabs .nav-link {
+  border-radius: 20px 20px 0 0;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.nav-tabs .nav-link.active {
+  background-color: #198754;
+  color: #fff !important;
+}
+.nav-tabs .nav-link:hover {
+  background-color: #e9f7ef;
+}
+
+/* === Form (untuk ambilantrian.php) === */
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+form .form-label {
+  font-weight: 600;
+  color: #444;
+}
+form input, form select, form textarea {
+  border-radius: 8px;
+}
+
+/* === Animasi === */
+.container h1, .container h3, .container p, .container .btn, form {
+  animation: fadeInUp 1s ease forwards;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

@@ -1,43 +1,42 @@
 <?php
-include "koneksi/koneksi.php"; // koneksi ke database
+include "koneksi/koneksi.php";
+include "component/navbar.php";
 
+// Ambil semua data pasien
 $query = "SELECT * FROM pasien ORDER BY no_pasien ASC";
-$result = mysqli_query($koneksi, $query);
+$result = mysqli_query($conn, $query);
 
+// Kelompokkan pasien berdasarkan poli
 $antrian = [
-    'A' => [],
-    'G' => [],
-    'U' => []
+    'Anak' => [],
+    'Gigi' => [],
+    'Umum' => []
 ];
 
 while ($row = mysqli_fetch_assoc($result)) {
-    $prefix = substr($row['no_pasien'], 0, 1);
-    if (isset($antrian[$prefix])) {
-        $antrian[$prefix][] = $row;
+    if (isset($antrian[$row['poli']])) {
+        $antrian[$row['poli']][] = $row;
     }
 }
 ?>
-
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Daftar Antrian Pasien</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Antrian</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="style.css" rel="stylesheet" >
+    <link href="css/style.css" rel="stylesheet">
 </head>
-<body style="background-color: #f8f9fa;">
-    <?php include "component/navbar.php"?>
-
-<div class="container mt-5">
+<body>
+    <div class="container mt-5 pt-5">
     <h3 class="text-center fw-bold text-primary mb-4">Daftar Antrian Pasien</h3>
 
     <?php
     $poliLabels = [
-        'A' => ['Poli Anak', 'success'],
-        'G' => ['Poli Gigi', 'danger'],
-        'U' => ['Poli Umum', 'info']
+        'Anak' => ['Poli Anak', 'success'],
+        'Gigi' => ['Poli Gigi', 'danger'],
+        'Umum' => ['Poli Umum', 'info']
     ];
 
     foreach ($antrian as $kode => $pasienList):
@@ -47,8 +46,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         <div class="card-header bg-<?= $color ?> text-white fw-bold"><?= $label ?></div>
         <div class="card-body">
             <?php if (count($pasienList) > 0): ?>
-            <table class="table table-bordered table-sm">
-                <thead class="table-light text-center">
+            <table class="table table-bordered table-sm text-center">
+                <thead class="table-light">
                     <tr>
                         <th>No. Pasien</th>
                         <th>Nama</th>
@@ -59,10 +58,10 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <tbody>
                     <?php foreach ($pasienList as $pasien): ?>
                     <tr>
-                        <td class="text-center"><?= htmlspecialchars($pasien['no_pasien']) ?></td>
-                        <td class="text-center"><?= htmlspecialchars($pasien['nama_lengkap']) ?></td>
-                        <td class="text-center"><?= htmlspecialchars($pasien['umur']) ?></td>
-                        <td class="text-center"><?= htmlspecialchars($pasien['no_hp']) ?></td>
+                        <td><?= htmlspecialchars($pasien['no_pasien']) ?></td>
+                        <td><?= htmlspecialchars($pasien['nama_lengkap']) ?></td>
+                        <td><?= htmlspecialchars($pasien['umur']) ?></td>
+                        <td><?= htmlspecialchars($pasien['no_hp']) ?></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -78,6 +77,6 @@ while ($row = mysqli_fetch_assoc($result)) {
         <a href="index.php" class="btn btn-outline-secondary">⬅ Kembali ke Menu Utama</a>
     </div>
 </div>
-
+<?php include "component/footer.php"; ?>
 </body>
 </html>

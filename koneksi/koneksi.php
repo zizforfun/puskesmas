@@ -2,9 +2,11 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$database = "puskema_aziz"; 
+$db   = "puskema_aziz"; 
 
-$koneksi = mysqli_connect($host, $user, $pass, $database);
-if(!$koneksi){
-    die("koneksi gagal");
+$conn = mysqli_connect($host, $user, $pass, $db);
+
+if (!$conn) {
+    die("Koneksi gagal: " . mysqli_connect_error());
 }
+?>
