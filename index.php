@@ -17,23 +17,7 @@
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top bg-white">
-  <div class="container">
-    <a class="navbar-brand fw-bold text-success" href="#">Klinik Sehat Bersama</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto fw-semibold">
-        <li class="nav-item"><a class="nav-link active text-success" href="#">Beranda</a></li>
-        <li class="nav-item"><a class="nav-link" href="ambilantrian.php">Ambil Antrian</a></li>
-        <li class="nav-item"><a class="nav-link" href="antrian.php">Cek Antrian</a></li>
-        <!-- <li class="nav-item"><a class="nav-link" href="admin_login.php">Admin</a></li> -->
-      </ul>
-    </div>
-  </div>
-</nav>
+<?php include "component/navbar.php"; ?>
 
 <!-- HERO -->
 <section class="hero d-flex align-items-center">

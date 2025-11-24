@@ -25,8 +25,10 @@ while ($row = mysqli_fetch_assoc($result)) {
     <title>Daftar Antrian Pasien</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="style.css" rel="stylesheet" >
 </head>
 <body style="background-color: #f8f9fa;">
+    <?php include "component/navbar.php"?>
 
 <div class="container mt-5">
     <h3 class="text-center fw-bold text-primary mb-4">Daftar Antrian Pasien</h3>

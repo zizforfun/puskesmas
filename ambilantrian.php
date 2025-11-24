@@ -10,8 +10,10 @@ $msg = isset($_GET['msg']) ? $_GET['msg'] : "";
     <link href="style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="style.css" rel="stylesheet" >
 </head>
 <body style="background-color: #e9f5ef;">
+    <?php include "component/navbar.php"?>
 
 <div class="container mt-5">
     <div class="col-lg-8 mx-auto">
