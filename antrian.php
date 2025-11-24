@@ -58,9 +58,9 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <?php foreach ($pasienList as $pasien): ?>
                     <tr>
                         <td class="text-center"><?= htmlspecialchars($pasien['no_pasien']) ?></td>
-                        <td><?= htmlspecialchars($pasien['nama_lengkap']) ?></td>
+                        <td class="text-center"><?= htmlspecialchars($pasien['nama_lengkap']) ?></td>
                         <td class="text-center"><?= htmlspecialchars($pasien['umur']) ?></td>
-                        <td><?= htmlspecialchars($pasien['no_hp']) ?></td>
+                        <td class="text-center"><?= htmlspecialchars($pasien['no_hp']) ?></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
