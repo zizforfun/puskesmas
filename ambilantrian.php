@@ -1,60 +1,70 @@
+<?php
+include 'koneksi/koneksi.php';
+include 'component/navbar.php';
 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nik = $_POST['nik'];
+
+    // cek pasien berdasarkan NIK
+    $cek = mysqli_query($conn, "SELECT * FROM pasien WHERE NIK='$nik'");
+    if (mysqli_num_rows($cek) > 0) {
+        $pasien = mysqli_fetch_assoc($cek);
+        // pasien ditemukan, tampilkan form pilih poli
+        $id_pasien = $pasien['id_pasien'];
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ambil Antrian</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  
 </head>
 <body>
-    <?php include 'component/navbar.php'; ?>
-<div class="container mt-5 pt-5">
-  <h3 class="text-center fw-bold text-success mb-4">Ambil Antrian</h3>
-
-  <ul class="nav nav-tabs" id="poliTab" role="tablist">
-    <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#anak">Poli Anak</button></li>
-    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#gigi">Poli Gigi</button></li>
-    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#umum">Poli Umum</button></li>
-  </ul>
-
-  <div class="tab-content mt-3">
-    <!-- Poli Anak -->
-    <div class="tab-pane fade show active" id="anak">
-      <form action="logic/proses_ambil.php" method="POST">
-        <input type="hidden" name="poli" value="A">
-        <?php include 'form_pasien.php'; ?>
-        <div class="d-grid mt-3">
-          <button type="submit" class="btn btn-success">Daftar Poli Anak</button>
+  
+  <div class="container-fluid">
+    <h2 class="mb-4">Ambil Antrian</h2>
+    <p>Halo, <strong><?= $pasien['nama_lengkap']; ?></strong> (NIK: <?= $pasien['NIK']; ?>)</p>
+          <form method="POST" action="logic/ambil_antrian.php">
+            <input type="hidden" name="id_pasien" value="<?= $id_pasien; ?>">
+            <div class="mb-3">
+              <label>Pilih Poli</label>
+              <select name="id_poli" class="form-control" required>
+                <?php
+                $poli = mysqli_query($conn, "SELECT * FROM jenis_poli");
+                while($row = mysqli_fetch_assoc($poli)){
+                  echo "<option value='{$row['id_poli']}'>{$row['nama_poli']}</option>";
+                }
+                ?>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-success">Ambil Antrian</button>
+          </form>
         </div>
-      </form>
+        <?php
+    } else {
+      // pasien tidak ditemukan, arahkan ke form registrasi
+      echo "<div class='alert alert-warning'>NIK tidak ditemukan. Silakan registrasi pasien baru.</div>";
+      echo "<a href='pasien_add.php' class='btn btn-primary'>Registrasi Pasien Baru</a>";
+    }
+  } else {
+    ?>
+<div class="container-fluid">
+  <h2 class="mb-4">Cek NIK Pasien</h2>
+  <form method="POST">
+    <div class="mb-3">
+      <label>Masukkan NIK</label>
+      <input type="text" name="nik" class="form-control" required>
     </div>
-
-    <!-- Poli Gigi -->
-    <div class="tab-pane fade" id="gigi">
-      <form action="logic/proses_ambil.php" method="POST">
-        <input type="hidden" name="poli" value="G">
-        <?php include 'form_pasien.php'; ?>
-        <div class="d-grid mt-3">
-          <button type="submit" class="btn btn-danger">Daftar Poli Gigi</button>
-        </div>
-      </form>
-    </div>
-
-    <!-- Poli Umum -->
-    <div class="tab-pane fade" id="umum">
-      <form action="logic/proses_ambil.php" method="POST">
-        <input type="hidden" name="poli" value="U">
-        <?php include 'form_pasien.php'; ?>
-        <div class="d-grid mt-3">
-          <button type="submit" class="btn btn-info">Daftar Poli Umum</button>
-        </div>
-      </form>
-    </div>
-  </div>
+    <button type="submit" class="btn btn-success">Cek NIK</button>
+  </form>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<?php include 'component/footer.php'; ?>
-</body>
 </html>
+</body>
+<?php
+}
+include 'component/footer.php';
+?>
