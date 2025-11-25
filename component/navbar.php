@@ -1,3 +1,6 @@
+<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+
+
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top bg-white">
   <div class="container">
     <a class="navbar-brand fw-bold text-success" href="index.php">Klinik Sehat Bersama</a>
@@ -10,6 +13,17 @@
         <li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
         <li class="nav-item"><a class="nav-link" href="ambilantrian.php">Ambil Antrian</a></li>
         <li class="nav-item"><a class="nav-link" href="antrian.php">Cek Antrian</a></li>
+       <?php if (isset($_SESSION['username'])): ?>
+        <li class="nav-item">
+        <a class="nav-link text-danger" href="logout.php">Logout</a>
+        </li>
+      <?php else: ?>
+        <li class="nav-item">
+        <a class="nav-link" href="login.php">Login</a>
+        </li>
+      <?php endif; ?>
+
+
       </ul>
     </div>
   </div>

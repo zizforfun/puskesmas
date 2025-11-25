@@ -1,6 +1,7 @@
 <?php
 include "koneksi/koneksi.php";
 include "component/navbar.php";
+require_once './logic/auth.php';
 
 // Ambil semua data pasien
 $query = "SELECT * FROM pasien ORDER BY no_pasien ASC";

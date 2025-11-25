@@ -1,22 +1,20 @@
 <?php
-session_start();
 require_once './koneksi/koneksi.php';
 
-if (isset($_POST['login'])) {
+if (isset($_POST['register'])) {
     $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $query = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'");
-    $data  = mysqli_fetch_assoc($query);
+    $cek = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'");
 
-    if ($data && password_verify($password, $data['password'])) {
-        $_SESSION['id_user']  = $data['id_user'];
-        $_SESSION['username'] = $data['username'];
-
-        header("Location: index.php");
-        exit;
+    if (mysqli_num_rows($cek) > 0) {
+        echo "<script>alert('Username sudah digunakan');</script>";
     } else {
-        echo "<script>alert('Username atau password salah');</script>";
+        $query = mysqli_query($conn, "INSERT INTO users (username, password) VALUES ('$username', '$password')");
+        
+        if ($query) {
+            echo "<script>alert('Registrasi berhasil! Silakan login'); window.location='login.php';</script>";
+        }
     }
 }
 ?>
@@ -25,7 +23,7 @@ if (isset($_POST['login'])) {
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Login | Klinik Sehat Bersama</title>
+  <title>Daftar | Klinik Sehat Bersama</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -36,7 +34,7 @@ if (isset($_POST['login'])) {
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #f0f4f8, #e8f5e9);
+      background: linear-gradient(135deg, #f0f4f8, #d6f5e3);
       padding: 20px;
     }
     .auth-card {
@@ -58,10 +56,6 @@ if (isset($_POST['login'])) {
       color: #555;
       margin-bottom: 25px;
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 
@@ -71,8 +65,8 @@ if (isset($_POST['login'])) {
 
 <div class="auth-wrapper">
   <div class="auth-card">
-      <h2>Login</h2>
-      <p>Masuk untuk menggunakan layanan antrian</p>
+      <h2>Daftar Akun</h2>
+      <p>Buat akun baru untuk akses layanan</p>
 
       <form method="POST">
         <div class="mb-3 text-start">
@@ -85,10 +79,10 @@ if (isset($_POST['login'])) {
           <input type="password" name="password" class="form-control" required>
         </div>
 
-        <button type="submit" name="login" class="btn btn-success w-100 py-2">Login</button>
+        <button type="submit" name="register" class="btn btn-success w-100 py-2">Daftar</button>
 
-        <p class="mt-3">Belum punya akun? 
-            <a href="register.php" class="text-success fw-bold">Daftar</a>
+        <p class="mt-3">Sudah punya akun? 
+            <a href="login.php" class="text-success fw-bold">Login</a>
         </p>
       </form>
   </div>
