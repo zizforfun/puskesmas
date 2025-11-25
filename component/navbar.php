@@ -21,13 +21,21 @@ document.addEventListener("DOMContentLoaded", function() {
   const currentPath = window.location.pathname.split("/").pop();
 
   navLinks.forEach(link => {
-    if (link.getAttribute("href") === currentPath) {
+    const href = link.getAttribute("href");
+
+    // Jika di index.php atau href = "#", tandai Beranda
+    if ((currentPath === "" && href === "index.php") || 
+        (currentPath === "index.php" && href === "index.php") || 
+        (href === "#" && currentPath === "")) {
+      link.classList.add("active", "text-success");
+    } else if (href === currentPath) {
       link.classList.add("active", "text-success");
     } else {
       link.classList.remove("active", "text-success");
     }
   });
 });
+
 </script>
 
 <style>

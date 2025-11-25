@@ -122,3 +122,111 @@ form input, form select, form textarea {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* === Hero Section === */
+.hero {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+}
+.hero h1 {
+  font-size: 2.8rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+.hero p {
+  font-size: 1.2rem;
+  color: #555;
+}
+.hero img {
+  animation: fadeIn 1s ease forwards;
+}
+
+/* Features Section */
+.features .card {
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+.features .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.features i {
+  transition: transform 0.3s ease;
+}
+.features .card:hover i {
+  transform: scale(1.2);
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* === CTA Section === */
+.cta {
+  background-color: #198754;
+}
+.cta h4 {
+  font-size: 1.5rem;
+}
+
+
+/* Landing Section */
+/* Landing Section */
+.landing {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4f8, #e8f5e9);
+  overflow: hidden;
+}
+
+/* Shape Background */
+.shape-bg {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle at center, #d1f2eb 0%, #f0f4f8 100%);
+  border-radius: 50% 0 0 50%;
+  z-index: 1;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .landing {
+    padding-top: 60px;
+    text-align: center;
+  }
+  .shape-bg {
+    display: none;
+  }
+}
+
+
+    /* Overlay Konten */
+    .landing-content {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .landing-content h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #198754;
+      margin-bottom: 20px;
+    }
+
+    .landing-content p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 0;
+    }
+.hero img {
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
