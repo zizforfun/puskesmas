@@ -11,9 +11,10 @@ if (isset($_POST['login'])) {
 
     if ($data && password_verify($password, $data['password'])) {
         $_SESSION['id_user']  = $data['id_user'];
+        $_SESSION['role'] = $data['role'];
         $_SESSION['username'] = $data['username'];
 
-        header("Location: index.php");
+        header("Location: admin/dashboard.php");
         exit;
     } else {
         echo "<script>alert('Username atau password salah');</script>";

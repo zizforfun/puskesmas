@@ -94,7 +94,6 @@
 <section class="py-5 bg-light">
   <div class="container">
     <h3 class="fw-bold text-success text-center mb-4">Lokasi Klinik Kami</h3>
-
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card shadow-sm border-0">
@@ -108,7 +107,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
