@@ -13,7 +13,7 @@
         <li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
         <li class="nav-item"><a class="nav-link" href="ambilantrian.php">Ambil Antrian</a></li>
         <li class="nav-item"><a class="nav-link" href="antrian.php">Cek Antrian</a></li>
-       <?php if (isset($_SESSION['username'])): ?>
+       <!-- <?php if (isset($_SESSION['username'])): ?>
         <li class="nav-item">
         <a class="nav-link text-danger" href="logout.php">Logout</a>
         </li>
@@ -21,7 +21,7 @@
         <li class="nav-item">
         <a class="nav-link" href="login.php">Login</a>
         </li>
-      <?php endif; ?>
+      <?php endif; ?> -->
 
 
       </ul>

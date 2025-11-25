@@ -1,4 +1,3 @@
-<?php require_once './logic/auth.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
