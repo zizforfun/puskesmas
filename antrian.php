@@ -37,47 +37,67 @@ while ($row = mysqli_fetch_assoc($result)) {
     <title>Cek Antrian</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+        .page-wrapper {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container mt-5 pt-4">
-    <h3 class="text-center fw-bold text-success mb-4">Cek Antrian Pasien</h3>
+<div class="page-wrapper">
 
-    <?php foreach ($antrian as $poli => $list): ?>
-        <div class="card mb-4">
-            <div class="card-header bg-success text-white fw-bold">
-                <?= htmlspecialchars($poli); ?>
-            </div>
-            <div class="card-body">
-                <table class="table table-bordered table-sm text-center">
-                    <thead class="table-light">
-                        <tr>
-                            <th>No Antrian</th>
-                            <th>Nama Pasien</th>
-                            <th>Umur</th>
-                            <th>No HP</th>
-                            <th>Tanggal Kunjungan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($list as $row): ?>
-                        <tr>
-                            <td><?= $row['no_antrian'] ?></td>
-                            <td><?= $row['nama_lengkap'] ?></td>
-                            <td><?= $row['umur'] ?></td>
-                            <td><?= $row['no_hp'] ?></td>
-                            <td><?= $row['tanggal_kunjungan'] ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
+    <div class="content">
+        <div class="container mt-5 pt-4">
+            <h3 class="text-center fw-bold text-success mb-4">Cek Antrian Pasien</h3>
+
+            <?php foreach ($antrian as $poli => $list): ?>
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white fw-bold">
+                        <?= htmlspecialchars($poli); ?>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-sm text-center">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>No Antrian</th>
+                                    <th>Nama Pasien</th>
+                                    <th>Umur</th>
+                                    <th>No HP</th>
+                                    <th>Tanggal Kunjungan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($list as $row): ?>
+                                <tr>
+                                    <td><?= $row['no_antrian'] ?></td>
+                                    <td><?= $row['nama_lengkap'] ?></td>
+                                    <td><?= $row['umur'] ?></td>
+                                    <td><?= $row['no_hp'] ?></td>
+                                    <td><?= $row['tanggal_kunjungan'] ?></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
-    <?php endforeach; ?>
-</div>
+    </div>
 
-<?php include "component/footer.php"; ?>
+    <?php include "component/footer.php"; ?>
+
+</div>
 
 </body>
 </html>

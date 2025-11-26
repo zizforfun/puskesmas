@@ -26,49 +26,25 @@ if (isset($_POST['login'])) {
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Login | Klinik Sehat Bersama</title>
+  <title>Login Admin| Klinik Sehat Bersama</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
   <style>
     .auth-wrapper {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #f0f4f8, #e8f5e9);
-      padding: 20px;
-    }
-    .auth-card {
-      background: #fff;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      max-width: 430px;
-      width: 100%;
-      animation: fadeInUp 0.8s ease;
-      text-align: center;
-    }
-    .auth-card h2 {
-      font-weight: 700;
-      color: #198754;
-      margin-bottom: 10px;
-    }
-    .auth-card p {
-      color: #555;
-      margin-bottom: 25px;
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+      min-height: 100vh; display: flex; justify-content: center; align-items: center;
+      background: linear-gradient(135deg, #f0f4f8, #e8f5e9); padding: 20px;}
+    .auth-card { background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      max-width: 430px; width: 100%; animation: fadeInUp 0.8s ease; text-align: center;}
+    .auth-card h2 { font-weight: 700; color: #198754; margin-bottom: 10px;}
+    .auth-card p { color: #555; margin-bottom: 25px;}
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); }
+                          to   { opacity: 1; transform: translateY(0); }}
   </style>
 </head>
 
 <body>
-
-<?php include 'component/navbar.php'; ?>
 
 <div class="auth-wrapper">
   <div class="auth-card">

@@ -23,50 +23,27 @@ if (isset($_POST['register'])) {
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Daftar | Klinik Sehat Bersama</title>
+  <title>Daftar Admin | Klinik Sehat Bersama</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    .auth-wrapper {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #f0f4f8, #d6f5e3);
-      padding: 20px;
-    }
-    .auth-card {
-      background: #fff;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      max-width: 430px;
-      width: 100%;
-      animation: fadeInUp 0.8s ease;
-      text-align: center;
-    }
-    .auth-card h2 {
-      font-weight: 700;
-      color: #198754;
-      margin-bottom: 10px;
-    }
-    .auth-card p {
-      color: #555;
-      margin-bottom: 25px;
-    }
+    .auth-wrapper { min-height: 100vh; display: flex; justify-content: center;
+      align-items: center; background: linear-gradient(135deg, #f0f4f8, #d6f5e3); padding: 20px;}
+    .auth-card { background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      max-width: 430px; width: 100%; animation: fadeInUp 0.8s ease; text-align: center;}
+    .auth-card h2 { font-weight: 700; color: #198754; margin-bottom: 10px;}
+    .auth-card p { color: #555; margin-bottom: 25px;}
   </style>
 </head>
 
 <body>
 
-<?php include 'component/navbar.php'; ?>
-
 <div class="auth-wrapper">
   <div class="auth-card">
       <h2>Daftar Akun</h2>
-      <p>Buat akun baru untuk akses layanan</p>
+      <p>Daftar untuk masuk</p>
 
       <form method="POST">
         <div class="mb-3 text-start">

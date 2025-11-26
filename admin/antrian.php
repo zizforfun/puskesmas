@@ -24,11 +24,17 @@ $result = mysqli_query($conn, $query);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Antrian</title>
-      <link href="assets/style.css" rel="stylesheet">
+  <link href="assets/style.css" rel="stylesheet">
+
+  <style>
+      .icon-btn {
+          padding: 5px 10px;
+          font-size: 18px;
+          border-radius: 6px;
+      }
+  </style>
 </head>
 <body>
-  
-
 
 <div class="container-fluid">
   <h2 class="mb-4">Data Antrian</h2>
@@ -59,27 +65,38 @@ $result = mysqli_query($conn, $query);
             <?= $row['status']; ?>
           </span>
         </td>
-        <td>
-          <?php if($row['status']=='menunggu'): ?>
-            <?php if($row['nama_poli']=='Umum'): ?>
-              <a href="/logic/antrian_update.php?id=<?= $row['id_antrian']; ?>&status=selesai" 
-                 class="btn btn-primary btn-sm">Panggil Umum</a>
-            <?php elseif($row['nama_poli']=='Gigi'): ?>
-              <a href="logic/antrian_update.php?id=<?= $row['id_antrian']; ?>&status=selesai" 
-                 class="btn btn-danger btn-sm">Panggil Gigi</a>
-            <?php elseif($row['nama_poli']=='Anak'): ?>
-              <a href="logic/antrian_update.php?id=<?= $row['id_antrian']; ?>&status=selesai" 
-                 class="btn btn-success btn-sm">Panggil Anak</a>
-            <?php endif; ?>
+
+        <!-- Aksi -->
+        <td class="text-center">
+
+          <?php if($row['status'] == 'menunggu'): ?>
+
+              <!-- Selesaikan -->
+              <a href="logic/antrian_update.php?id=<?= $row['id_antrian']; ?>&status=selesai"
+                 class="btn btn-sm btn-success icon-btn"
+                 title="Selesaikan Antrian">
+                 ✔️
+              </a>
+
           <?php else: ?>
-            <em>-</em>
+
+              <!-- Batalkan = Kembalikan ke MENUNGGU -->
+              <a href="logic/antrian_update.php?id=<?= $row['id_antrian']; ?>&status=menunggu"
+                 class="btn btn-sm btn-warning icon-btn"
+                 title="Batalkan dan Kembalikan ke Menunggu">
+                 ↩️
+              </a>
+
           <?php endif; ?>
+
         </td>
+
       </tr>
       <?php endwhile; ?>
     </tbody>
   </table>
 </div>
+
 </body>
 </html>
 
