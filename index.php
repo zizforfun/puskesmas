@@ -45,24 +45,24 @@
       <!-- Poli Anak -->
       <div class="col-md-4 mb-4">
         <div class="card h-100 shadow-sm border-0 p-4">
-          <div class="icon-wrapper bg-success bg-opacity-10 text-success mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width:90px; height:90px; margin:auto;">
-            <i class="bi bi-emoji-smile fs-1"></i>
+          <div class="icon-wrapper bg-danger bg-opacity-10 text-danger mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width:90px; height:90px; margin:auto;">
+          <i class="bi bi-emoji-smile fs-1"></i>
           </div>
           <h5 class="fw-bold">Poli Anak</h5>
           <p class="text-muted">Konsultasi dan pemeriksaan kesehatan khusus anak-anak.</p>
         </div>
       </div>
 
-      <!-- Poli Gigi -->
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 shadow-sm border-0 p-4">
-          <div class="icon-wrapper bg-danger bg-opacity-10 text-danger mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width:90px; height:90px; margin:auto;">
-            <i class="bi bi-heart-pulse fs-1"></i>
-          </div>
-          <h5 class="fw-bold">Poli Gigi</h5>
-          <p class="text-muted">Perawatan kesehatan gigi dan mulut oleh tenaga ahli.</p>
+     <!-- Poli Gigi -->
+     <div class="col-md-4 mb-4">
+       <div class="card h-100 shadow-sm border-0 p-4">
+         <div class="icon-wrapper bg-warning bg-opacity-25 text-warning mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width:90px; height:90px; margin:auto;">
+           <i class="bi bi-shield-check fs-1"></i>
+         </div>
+         <h5 class="fw-bold">Poli Gigi</h5>
+         <p class="text-muted">Perawatan kesehatan gigi dan mulut oleh tenaga ahli.</p>
         </div>
-      </div>
+     </div>
 
       <!-- Poli Umum -->
       <div class="col-md-4 mb-4">

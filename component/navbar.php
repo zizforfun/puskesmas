@@ -52,12 +52,50 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <style>
+/* 🌿 Navbar Hijau Emerald Elegan */
+.navbar {
+    background: linear-gradient(90deg, #0f5132, #198754);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+.navbar-brand i {
+    color: #c6ffd9 !important;
+}
+
 .nav-link {
-  transition: all 0.3s ease;
+    color: #e8fff1 !important;
+    transition: all 0.3s ease;
 }
-.nav-link.active {
-  color: #198754 !important;
-  font-weight: bold;
-  transform: scale(1.1);
+
+.nav-link.active,
+.nav-link:hover {
+    color: #ffffff !important;
+    transform: scale(1.07);
 }
+
+/* Icon nav */
+.nav-link i {
+    color: #d4ffe4 !important;
+}
+
+.nav-link:hover i,
+.nav-link.active i {
+    color: #ffffff !important;
+}
+
+/* Toggler button */
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.5);
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
 </style>

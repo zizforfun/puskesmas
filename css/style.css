@@ -1,123 +1,166 @@
-/* === Global === */
+/* === Global Style === */
 body {
-  background: linear-gradient(135deg, #f0f4f8, #f1f8e9);
+  background: linear-gradient(135deg, #eef4f7, #eaf7ef);
   font-family: 'Segoe UI', sans-serif;
   color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-h1, h3 {
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+h1, h3, h5 {
   font-weight: 700;
+  color: #2c3e50;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
 }
 
 /* === Card === */
 .card {
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-.card-header {
-  font-size: 1.2rem;
-  letter-spacing: 0.5px;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 0;
+  border: none;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  transition: all 0.25s ease;
+  margin-bottom: 25px;
 }
 
-/* === Table (untuk antrian.php) === */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card-header {
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 15px;
+  color: #fff;
+  text-align: center;
+  border-bottom: none;
+}
+
+
+/* Poli Anak */
+.poli-anak {
+    border-left: 8 solid #d02020;
+}
+.poli-head-anak {
+    background-color: #d02020 !important;
+    color: white !important;
+}
+
+/* Poli Gigi */
+.poli-gigi {
+    border-left: 8 solid #ff914d;
+}
+.poli-head-gigi {
+    background-color: #ff914d !important;
+    color: white !important;
+}
+
+/* Poli Umum */
+.poli-umum {
+    border-left: 8 solid #1c71d1;
+}
+.poli-head-umum {
+    background-color: #4d5feb !important;
+    color: white !important;
+}
+
+/* === Table Style === */
 table {
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
+  width: 100%;
 }
+
 table thead {
-  background: #f8f9fa;
+  background: #f1f5f9;
+  font-weight: 700;
+  color: #2c3e50;
 }
+
+table tbody tr {
+  transition: background 0.2s ease;
+}
+
 table tbody tr:hover {
-  background-color: #e9f7ef;
+  background: #e8f7f0;
 }
 
 /* === Buttons === */
 .btn {
-  border-radius: 25px;
-  padding: 10px 22px;
+  border-radius: 30px;
   font-weight: 600;
+  padding: 10px 26px;
   transition: all 0.3s ease;
 }
+
 .btn-success {
-  background-color: #43a047;
+  background: #198754;
   border: none;
 }
 .btn-success:hover {
-  background-color: #2e7d32;
+  background: #157347;
   transform: scale(1.05);
 }
+
 .btn-primary {
-  background-color: #1e88e5;
+  background: #0d6efd;
   border: none;
 }
 .btn-primary:hover {
-  background-color: #1565c0;
+  background: #0b5ed7;
   transform: scale(1.05);
 }
+
 .btn-danger {
-  background-color: #e53935;
+  background: #dc3545;
   border: none;
 }
 .btn-danger:hover {
-  background-color: #c62828;
+  background: #bb2d3b;
   transform: scale(1.05);
 }
+
 .btn-info {
-  background-color: #29b6f6;
+  background: #0dcaf0;
   border: none;
 }
 .btn-info:hover {
-  background-color: #0288d1;
+  background: #0bb8d1;
   transform: scale(1.05);
 }
-.btn-outline-secondary {
-  border-radius: 20px;
-  padding: 8px 20px;
-}
-.btn-outline-secondary:hover {
-  background-color: #198754;
-  color: #fff;
-}
 
-/* === Tabs (untuk ambilantrian.php) === */
-.nav-tabs .nav-link {
-  border-radius: 20px 20px 0 0;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-.nav-tabs .nav-link.active {
-  background-color: #198754;
-  color: #fff !important;
-}
-.nav-tabs .nav-link:hover {
-  background-color: #e9f7ef;
-}
-
-/* === Form (untuk ambilantrian.php) === */
+/* === Form === */
 form {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
+
 form .form-label {
   font-weight: 600;
-  color: #444;
-}
-form input, form select, form textarea {
-  border-radius: 8px;
+  color: #34495e;
 }
 
-/* === Animasi === */
-.container h1, .container h3, .container p, .container .btn, form {
-  animation: fadeInUp 1s ease forwards;
+form input, form select, form textarea {
+  border-radius: 10px;
+  border: 1px solid #d0d7de;
+  transition: border-color 0.2s ease;
 }
+
+form input:focus, form select:focus, form textarea:focus {
+  border-color: #198754;
+  outline: none;
+  box-shadow: 0 0 5px rgba(25,135,84,0.3);
+}
+
+/* === Animasi Halus === */
+.fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -125,109 +168,100 @@ form input, form select, form textarea {
 
 /* === Hero Section === */
 .hero {
-  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  background: linear-gradient(135deg, #eafaf1, #f4fafc);
+  padding: 40px 0;
+  border-radius: 14px;
 }
+
 .hero h1 {
-  font-size: 2.8rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  font-size: 2.7rem;
+  font-weight: 800;
+  color: #198754;
 }
+
 .hero p {
-  font-size: 1.2rem;
-  color: #555;
+  font-size: 1.15rem;
+  color: #5c6a75;
 }
+
 .hero img {
-  animation: fadeIn 1s ease forwards;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
-/* Features Section */
-.features .card {
-  border-radius: 16px;
-  transition: all 0.3s ease;
-}
-.features .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-.features i {
-  transition: transform 0.3s ease;
-}
-.features .card:hover i {
-  transform: scale(1.2);
+/* === Tabs === */
+.nav-tabs .nav-link {
+  padding: 12px 20px;
+  border-radius: 20px 20px 0 0;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
-/* Animasi */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+.nav-tabs .nav-link.active {
+  background: #198754 !important;
+  color: #fff !important;
 }
 
-/* === CTA Section === */
+.nav-tabs .nav-link:hover {
+  background: #d9f2e5;
+}
+
+/* CTA Section */
 .cta {
-  background-color: #198754;
+  background: #198754;
+  padding: 25px;
+  border-radius: 14px;
 }
+
 .cta h4 {
   font-size: 1.5rem;
+  color: #fff;
 }
 
-
-/* Landing Section */
-/* Landing Section */
+/* Landing */
 .landing {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0f4f8, #e8f5e9);
-  overflow: hidden;
+  background: linear-gradient(135deg, #f1f6fa, #eaf8f1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
-/* Shape Background */
 .shape-bg {
   position: absolute;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  width: 80%;
-  height: 80%;
-  background: radial-gradient(circle at center, #d1f2eb 0%, #f0f4f8 100%);
+  width: 75%;
+  height: 75%;
+  background: radial-gradient(circle, #d6f2ea, #eef4f7);
   border-radius: 50% 0 0 50%;
   z-index: 1;
+}
+
+/* Landing Content */
+.landing-content {
+  background: rgba(255,255,255,0.85);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  max-width: 780px;
+  z-index: 5;
+}
+
+.landing-content h1 {
+  color: #198754;
+  font-size: 2.4rem;
+  margin-bottom: 15px;
 }
 
 /* Responsif */
 @media (max-width: 768px) {
   .landing {
-    padding-top: 60px;
-    text-align: center;
+    padding: 20px;
   }
   .shape-bg {
     display: none;
   }
 }
-
-
-    /* Overlay Konten */
-    .landing-content {
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      max-width: 800px;
-      width: 100%;
-      text-align: center;
-    }
-
-    .landing-content h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #198754;
-      margin-bottom: 20px;
-    }
-
-    .landing-content p {
-      font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 0;
-    }
-.hero img {
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-

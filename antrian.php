@@ -22,7 +22,6 @@ $query = "
 
 $result = mysqli_query($conn, $query);
 
-// Kelompokkan berdasarkan poli
 $antrian = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $antrian[$row['nama_poli']][] = $row;
@@ -53,7 +52,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         }
     </style>
 </head>
-
+<?php include 'component/navbar.php'; ?>
 <body>
 
 <div class="page-wrapper">
@@ -63,8 +62,10 @@ while ($row = mysqli_fetch_assoc($result)) {
             <h3 class="text-center fw-bold text-success mb-4">Cek Antrian Pasien</h3>
 
             <?php foreach ($antrian as $poli => $list): ?>
-                <div class="card mb-4">
-                    <div class="card-header bg-success text-white fw-bold">
+                <div class="card shadow-sm poli-<?= strtolower(str_replace(' ', '-', str_replace('Poli ', '', $poli))) ?>">
+                    <div class="card-header poli-head-<?= strtolower(str_replace(' ', '-', str_replace('Poli ', '', $poli))) ?>">
+
+
                         <?= htmlspecialchars($poli); ?>
                     </div>
                     <div class="card-body">
