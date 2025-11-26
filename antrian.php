@@ -2,81 +2,82 @@
 include "koneksi/koneksi.php";
 include "component/navbar.php";
 
-// Ambil semua data pasien
-$query = "SELECT * FROM pasien ORDER BY no_pasien ASC";
+// Ambil antrian yang statusnya masih menunggu
+$query = "
+    SELECT 
+        a.id_antrian,
+        a.no_antrian,
+        a.tanggal_kunjungan,
+        a.status,
+        p.nama_lengkap,
+        p.umur,
+        p.no_hp,
+        j.nama_poli
+    FROM antrian a
+    JOIN pasien p ON a.id_pasien = p.id_pasien
+    JOIN jenis_poli j ON a.id_poli = j.id_poli
+    WHERE a.status = 'menunggu'
+    ORDER BY a.id_poli, a.no_antrian ASC
+";
+
 $result = mysqli_query($conn, $query);
 
-// Kelompokkan pasien berdasarkan poli
-$antrian = [
-    'Anak' => [],
-    'Gigi' => [],
-    'Umum' => []
-];
-
+// Kelompokkan berdasarkan poli
+$antrian = [];
 while ($row = mysqli_fetch_assoc($result)) {
-    if (isset($antrian[$row['poli']])) {
-        $antrian[$row['poli']][] = $row;
-    }
+    $antrian[$row['nama_poli']][] = $row;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Antrian</title>
+    <title>Cek Antrian</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container mt-5 pt-5">
-    <h3 class="text-center fw-bold text-primary mb-4">Daftar Antrian Pasien</h3>
 
-    <?php
-    $poliLabels = [
-        'Anak' => ['Poli Anak', 'success'],
-        'Gigi' => ['Poli Gigi', 'danger'],
-        'Umum' => ['Poli Umum', 'info']
-    ];
+<div class="container mt-5 pt-4">
+    <h3 class="text-center fw-bold text-success mb-4">Cek Antrian Pasien</h3>
 
-    foreach ($antrian as $kode => $pasienList):
-        [$label, $color] = $poliLabels[$kode];
-    ?>
-    <div class="card mb-4 border-<?= $color ?>">
-        <div class="card-header bg-<?= $color ?> text-white fw-bold"><?= $label ?></div>
-        <div class="card-body">
-            <?php if (count($pasienList) > 0): ?>
-            <table class="table table-bordered table-sm text-center">
-                <thead class="table-light">
-                    <tr>
-                        <th>No. Pasien</th>
-                        <th>Nama</th>
-                        <th>Umur</th>
-                        <th>No. HP</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($pasienList as $pasien): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($pasien['no_pasien']) ?></td>
-                        <td><?= htmlspecialchars($pasien['nama_lengkap']) ?></td>
-                        <td><?= htmlspecialchars($pasien['umur']) ?></td>
-                        <td><?= htmlspecialchars($pasien['no_hp']) ?></td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-            <?php else: ?>
-            <p class="text-muted text-center">Belum ada pasien di <?= $label ?>.</p>
-            <?php endif; ?>
+    <?php foreach ($antrian as $poli => $list): ?>
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white fw-bold">
+                <?= htmlspecialchars($poli); ?>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-sm text-center">
+                    <thead class="table-light">
+                        <tr>
+                            <th>No Antrian</th>
+                            <th>Nama Pasien</th>
+                            <th>Umur</th>
+                            <th>No HP</th>
+                            <th>Tanggal Kunjungan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($list as $row): ?>
+                        <tr>
+                            <td><?= $row['no_antrian'] ?></td>
+                            <td><?= $row['nama_lengkap'] ?></td>
+                            <td><?= $row['umur'] ?></td>
+                            <td><?= $row['no_hp'] ?></td>
+                            <td><?= $row['tanggal_kunjungan'] ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
     <?php endforeach; ?>
-
-    <div class="text-center mt-4">
-        <a href="index.php" class="btn btn-outline-secondary">⬅ Kembali ke Menu Utama</a>
-    </div>
 </div>
+
 <?php include "component/footer.php"; ?>
+
 </body>
 </html>

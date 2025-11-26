@@ -3,13 +3,28 @@ include "../koneksi/koneksi.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
-    $poliKode = $_POST['poli'];
+    // menerima pilihan poli dari form
+    $poliInput = $_POST['poli'];
 
-    if ($poliKode == "A") $poli = "Anak";
-    else if ($poliKode == "G") $poli = "Gigi";
-    else if ($poliKode == "U") $poli = "Umum";
-    else $poli = "Tidak diketahui";
+    // mapping poli → kode
+    if ($poliInput == "ANAK") {
+        $poliKode = "A";
+        $poli     = "Anak";
+    }
+    else if ($poliInput == "GIGI") {
+        $poliKode = "G";
+        $poli     = "Gigi";
+    }
+    else if ($poliInput == "UMUM") {
+        $poliKode = "U";
+        $poli     = "Umum";
+    }
+    else {
+        $poliKode = "?";
+        $poli     = "Tidak diketahui";
+    }
 
+    // data pasien
     $NIK              = $_POST['NIK'];
     $nama_lengkap     = $_POST['nama_lengkap'];
     $tanggal_lahir    = $_POST['tanggal_lahir'];
@@ -19,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $status_pernikahan= $_POST['status_pernikahan'];
     $no_hp            = $_POST['no_hp'];
 
+    // cek nomor terakhir
     $query = "SELECT no_pasien FROM pasien 
               WHERE no_pasien LIKE '{$poliKode}%' 
               ORDER BY no_pasien DESC LIMIT 1";
@@ -31,9 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $newNumber = 1;
     }
 
+    // generate nomor baru
     $formattedNumber = str_pad($newNumber, 3, '0', STR_PAD_LEFT);
     $no_pasien = $poliKode . $formattedNumber;
 
+    // simpan
     $sql = "INSERT INTO pasien 
             (no_pasien, NIK, nama_lengkap, tanggal_lahir, poli, Jenis_Kelamin, umur, alamat, status_pernikahan, no_hp) 
             VALUES 

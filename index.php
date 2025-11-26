@@ -5,19 +5,9 @@
   <title>Klinik Sehat Bersama</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 
-  <!-- <style>
-      .landing-bg {
-      background: url('gambar/a humorous male doct.png') no-repeat center center;
-      background-size: cover;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 20px;
-    }
-  </style> -->
 </head>
 <?php include 'component/navbar.php'; ?>
 <body>
@@ -45,41 +35,50 @@
   </div>
 </section>
 
-<!-- Info Poli (scroll ke bawah) -->
+<!-- Info Poli dengan Bootstrap Icons -->
 <section class="features py-5 bg-white">
   <div class="container">
     <h3 class="text-center fw-bold text-success mb-5">Layanan Poli Kami</h3>
+
     <div class="row text-center">
+
+      <!-- Poli Anak -->
       <div class="col-md-4 mb-4">
-        <div class="card h-100 border-success shadow-sm">
-          <div class="card-body">
-            <i class="bi bi-bandaid fs-1 text-success"></i>
-            <h5 class="mt-3 fw-bold">Poli Anak</h5>
-            <p class="text-muted">Konsultasi dan pemeriksaan khusus anak-anak</p>
+        <div class="card h-100 shadow-sm border-0 p-4">
+          <div class="icon-wrapper bg-success bg-opacity-10 text-success mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width:90px; height:90px; margin:auto;">
+            <i class="bi bi-emoji-smile fs-1"></i>
           </div>
+          <h5 class="fw-bold">Poli Anak</h5>
+          <p class="text-muted">Konsultasi dan pemeriksaan kesehatan khusus anak-anak.</p>
         </div>
       </div>
+
+      <!-- Poli Gigi -->
       <div class="col-md-4 mb-4">
-        <div class="card h-100 border-danger shadow-sm">
-          <div class="card-body">
-            <i class="bi bi-heart-pulse fs-1 text-danger"></i>
-            <h5 class="mt-3 fw-bold">Poli Gigi</h5>
-            <p class="text-muted">Perawatan gigi dan mulut oleh tenaga profesional</p>
+        <div class="card h-100 shadow-sm border-0 p-4">
+          <div class="icon-wrapper bg-danger bg-opacity-10 text-danger mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width:90px; height:90px; margin:auto;">
+            <i class="bi bi-heart-pulse fs-1"></i>
           </div>
+          <h5 class="fw-bold">Poli Gigi</h5>
+          <p class="text-muted">Perawatan kesehatan gigi dan mulut oleh tenaga ahli.</p>
         </div>
       </div>
+
+      <!-- Poli Umum -->
       <div class="col-md-4 mb-4">
-        <div class="card h-100 border-info shadow-sm">
-          <div class="card-body">
-            <i class="bi bi-person-check fs-1 text-info"></i>
-            <h5 class="mt-3 fw-bold">Poli Umum</h5>
-            <p class="text-muted">Layanan kesehatan dasar untuk semua usia</p>
+        <div class="card h-100 shadow-sm border-0 p-4">
+          <div class="icon-wrapper bg-info bg-opacity-10 text-info mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width:90px; height:90px; margin:auto;">
+            <i class="bi bi-person-heart fs-1"></i>
           </div>
+          <h5 class="fw-bold">Poli Umum</h5>
+          <p class="text-muted">Pelayanan kesehatan umum untuk semua usia dengan tenaga medis profesional </p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
+
 
 <section class="cta text-white py-5">
   <div class="container text-center">

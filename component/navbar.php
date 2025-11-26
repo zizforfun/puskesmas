@@ -3,25 +3,24 @@
 
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top bg-white">
   <div class="container">
-    <a class="navbar-brand fw-bold text-success" href="index.php">Klinik Sehat Bersama</a>
+    <a class="navbar-brand fw-bold text-success" href="index.php">
+      <i class="bi bi-hospital text-success me-2"></i> Klinik Sehat Bersama
+    </a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto fw-semibold">
-        <li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
-        <li class="nav-item"><a class="nav-link" href="ambilantrian.php">Ambil Antrian</a></li>
-        <li class="nav-item"><a class="nav-link" href="antrian.php">Cek Antrian</a></li>
-       <!-- <?php if (isset($_SESSION['username'])): ?>
-        <li class="nav-item">
-        <a class="nav-link text-danger" href="logout.php">Logout</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="index.php"><i class="bi bi-house-door me-1"></i> Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="ambilantrian.php"><i class="bi bi-ticket-perforated me-1"></i> Ambil Antrian</a></li>
+        <li class="nav-item"><a class="nav-link" href="antrian.php"><i class="bi bi-search me-1"></i> Cek Antrian</a></li>
+      <?php if (isset($_SESSION['username'])): ?>
+       
       <?php else: ?>
-        <li class="nav-item">
-        <a class="nav-link" href="login.php">Login</a>
-        </li>
-      <?php endif; ?> -->
+        
+      <?php endif; ?> 
 
 
       </ul>
