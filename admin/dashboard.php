@@ -55,6 +55,6 @@ $jumlahPoli = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total F
 </div>
 </div>
 
+<?php include '../component/footer.php'; ?>
 </body>
 </html>
-<?php include '../component/footer.php'; ?>

@@ -3,6 +3,13 @@ include "koneksi/koneksi.php";
 include "component/navbar.php";
 
 // Ambil antrian yang statusnya masih menunggu
+$poliResult = mysqli_query($conn, "SELECT id_poli, nama_poli FROM jenis_poli");
+$allPoli = [];
+while ($row = mysqli_fetch_assoc($poliResult)) {
+    $allPoli[$row['id_poli']] = $row['nama_poli'];
+}
+
+// Ambil antrian menunggu
 $query = "
     SELECT 
         a.id_antrian,
@@ -12,6 +19,7 @@ $query = "
         p.nama_lengkap,
         p.umur,
         p.no_hp,
+        j.id_poli,
         j.nama_poli
     FROM antrian a
     JOIN pasien p ON a.id_pasien = p.id_pasien
@@ -19,13 +27,13 @@ $query = "
     WHERE a.status = 'menunggu'
     ORDER BY a.id_poli, a.no_antrian ASC
 ";
-
 $result = mysqli_query($conn, $query);
 
 $antrian = [];
 while ($row = mysqli_fetch_assoc($result)) {
-    $antrian[$row['nama_poli']][] = $row;
+    $antrian[$row['id_poli']][] = $row;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -59,42 +67,46 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     <div class="content">
         <div class="container mt-5 pt-4">
-            <h3 class="text-center fw-bold text-success mb-4">Cek Antrian Pasien</h3>
+    <h3 class="text-center fw-bold text-success mb-4">Cek Antrian Pasien</h3>
 
-            <?php foreach ($antrian as $poli => $list): ?>
-                <div class="card shadow-sm poli-<?= strtolower(str_replace(' ', '-', str_replace('Poli ', '', $poli))) ?>">
-                    <div class="card-header poli-head-<?= strtolower(str_replace(' ', '-', str_replace('Poli ', '', $poli))) ?>">
-
-
-                        <?= htmlspecialchars($poli); ?>
+    <?php foreach ($allPoli as $id_poli => $nama_poli): ?>
+        <div class="card shadow-sm poli-<?= strtolower(str_replace(' ', '-', str_replace('Poli ', '', $nama_poli))) ?>">
+            <div class="card-header poli-head-<?= strtolower(str_replace(' ', '-', str_replace('Poli ', '', $nama_poli))) ?>">
+                <?= htmlspecialchars($nama_poli); ?>
+            </div>
+            <div class="card-body">
+                <?php if (empty($antrian[$id_poli])): ?>
+                    <div class="alert alert-info text-center">
+                        Tidak ada antrian menunggu untuk poli ini.
                     </div>
-                    <div class="card-body">
-                        <table class="table table-bordered table-sm text-center">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>No Antrian</th>
-                                    <th>Nama Pasien</th>
-                                    <th>Umur</th>
-                                    <th>No HP</th>
-                                    <th>Tanggal Kunjungan</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($list as $row): ?>
-                                <tr>
-                                    <td><?= $row['no_antrian'] ?></td>
-                                    <td><?= $row['nama_lengkap'] ?></td>
-                                    <td><?= $row['umur'] ?></td>
-                                    <td><?= $row['no_hp'] ?></td>
-                                    <td><?= $row['tanggal_kunjungan'] ?></td>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+                <?php else: ?>
+                    <table class="table table-bordered table-sm text-center">
+                        <thead class="table-light">
+                            <tr>
+                                <th>No Antrian</th>
+                                <th>Nama Pasien</th>
+                                <th>Umur</th>
+                                <th>No HP</th>
+                                <th>Tanggal Kunjungan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($antrian[$id_poli] as $row): ?>
+                            <tr>
+                                <td><?= $row['no_antrian'] ?></td>
+                                <td><?= $row['nama_lengkap'] ?></td>
+                                <td><?= $row['umur'] ?></td>
+                                <td><?= $row['no_hp'] ?></td>
+                                <td><?= $row['tanggal_kunjungan'] ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php endif; ?>
+            </div>
         </div>
+    <?php endforeach; ?>
+</div>
     </div>
 
     <?php include "component/footer.php"; ?>
