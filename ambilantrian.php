@@ -103,6 +103,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
 
+        <a href="ambilantrian.php" 
+           class="btn btn-outline-success rounded-pill px-3 mb-4 d-inline-flex align-items-center shadow-sm">
+            <i class="bi bi-arrow-left me-2"></i> Kembali
+        </a>
+
 <?php
     } else {
         echo "

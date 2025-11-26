@@ -84,10 +84,15 @@ include 'koneksi/koneksi.php';
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-success btn-lg px-4">
-                    Simpan Data
-                </button>
+               <div class="d-flex gap-3 mt-4">
+                   <button type="submit" class="btn btn-success btn-lg px-4 rounded-pill shadow-sm">
+                   <i class="bi bi-check-circle me-2"></i> Simpan Data
+                   </button>
 
+                   <a href="ambilantrian.php"class="btn btn-outline-success btn-lg px-4 rounded-pill d-flex align-items-center shadow-sm">
+                   <i class="bi bi-arrow-left me-2"></i> Kembali
+                   </a>
+                </div>
             </form>
 
         </div>
