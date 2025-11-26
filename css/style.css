@@ -265,3 +265,25 @@ form input:focus, form select:focus, form textarea:focus {
     display: none;
   }
 }
+ 
+.features {
+    background: linear-gradient(to bottom, #f9fffb, #eefaf3);
+}
+
+/* Poli Anak */
+.icon-wrapper.bg-danger.bg-opacity-10 {
+    background: rgba(255, 99, 99, 0.18) !important;
+    color: #d62828 !important;
+}
+
+/* Poli Gigi */
+.icon-wrapper.bg-warning.bg-opacity-25 {
+    background: rgba(255, 193, 7, 0.25) !important;
+    color: #d48b00 !important;
+}
+
+/* Poli Umum */
+.icon-wrapper.bg-info.bg-opacity-10 {
+    background: rgba(0, 190, 255, 0.18) !important;
+    color: #0096c7 !important;
+}
