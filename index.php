@@ -7,6 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+    <link href="css/animation.css" rel="stylesheet">
 
 </head>
 <?php include 'component/navbar.php'; ?>
@@ -97,11 +98,20 @@
       <div class="col-md-8">
         <div class="card shadow-sm border-0">
           <div class="card-body p-0">
+            <div style="position:relative; width:100%; height:350px; border-radius:12px; overflow:hidden;">
+  <!-- iframe Google Maps -->
+
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.7251134610294!2d118.723896!3d-8.456547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2db46d4fbe9a6a8b%3A0xf3e8e61e94d3b4d4!2sBima%2C%20Nusa%20Tenggara%20Barat!5e0!3m2!1sid!2sid!4v1700000000000"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8523.633011447128!2d119.48045525892881!3d-8.527644538141253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2db4f8f329ac91b9%3A0xb1a1078870e0d162!2sTaman%20Nasional%20Komodo!5e0!3m2!1sid!2sid!4v1764224611287!5m2!1sid!2sid"
               width="100%" height="350" style="border:0; border-radius:12px;"
               allowfullscreen="" loading="lazy">
             </iframe>
+              <a href="https://maps.app.goo.gl/Zq6smxSp4aRzAQYQ8" 
+                target="_blank" 
+                style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:2;">
+              </a>
+            </div>
+
           </div>
         </div>
       </div>

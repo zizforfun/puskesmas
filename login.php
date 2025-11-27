@@ -49,7 +49,7 @@ if (isset($_POST['login'])) {
 <div class="auth-wrapper">
   <div class="auth-card">
       <h2>Login</h2>
-      <p>Masuk untuk menggunakan layanan antrian</p>
+      <p>Masuk untuk mengakses sistem klinik</p>
 
       <form method="POST">
         <div class="mb-3 text-start">
@@ -63,10 +63,10 @@ if (isset($_POST['login'])) {
         </div>
 
         <button type="submit" name="login" class="btn btn-success w-100 py-2">Login</button>
-
+<!-- 
         <p class="mt-3">Belum punya akun? 
             <a href="register.php" class="text-success fw-bold">Daftar</a>
-        </p>
+        </p> -->
       </form>
   </div>
 </div>
