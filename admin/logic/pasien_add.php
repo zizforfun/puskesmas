@@ -5,7 +5,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'petugas') {
     exit();
 }
 include '../../koneksi/koneksi.php';
-include '../partials/header.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $no_pasien = $_POST['no_pasien'];
@@ -24,56 +24,72 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit();
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../css/style.css" rel="stylesheet">
+</head>
+<body>
+  
+  <div class="container p-5">
 
-<div class="container-fluid">
-  <h2 class="mb-4">Tambah Pasien</h2>
-  <form method="POST">
-    <div class="mb-3">
-      <label>No Pasien</label>
-      <input type="text" name="no_pasien" class="form-control" required>
+    <div class="container-fluid">
+      <h2 class="mb-4" style="text-align: center";>Tambah Pasien</h2>
+      <form method="POST">
+        <div class="mb-3">
+          <label>No Pasien</label>
+          <input type="text" name="no_pasien" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>NIK</label>
+          <input type="text" name="nik" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Nama Lengkap</label>
+          <input type="text" name="nama" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Tanggal Lahir</label>
+          <input type="date" name="tanggal_lahir" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Jenis Kelamin</label>
+          <select name="jenis_kelamin" class="form-control">
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label>Umur</label>
+          <input type="number" name="umur" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Alamat</label>
+          <textarea name="alamat" class="form-control" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label>Status Pernikahan</label>
+          <select name="status" class="form-control">
+            <option value="Belum Menikah">Belum Menikah</option>
+            <option value="Menikah">Menikah</option>
+            <option value="Cerai">Cerai</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label>No HP</label>
+          <input type="text" name="no_hp" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success">Simpan</button>
+        <a href="../pasien.php" class="btn btn-secondary">Kembali</a>
+      </form>
     </div>
-    <div class="mb-3">
-      <label>NIK</label>
-      <input type="text" name="nik" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label>Nama Lengkap</label>
-      <input type="text" name="nama" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label>Tanggal Lahir</label>
-      <input type="date" name="tanggal_lahir" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label>Jenis Kelamin</label>
-      <select name="jenis_kelamin" class="form-control">
-        <option value="Laki-laki">Laki-laki</option>
-        <option value="Perempuan">Perempuan</option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <label>Umur</label>
-      <input type="number" name="umur" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label>Alamat</label>
-      <textarea name="alamat" class="form-control" required></textarea>
-    </div>
-    <div class="mb-3">
-      <label>Status Pernikahan</label>
-      <select name="status" class="form-control">
-        <option value="Belum Menikah">Belum Menikah</option>
-        <option value="Menikah">Menikah</option>
-        <option value="Cerai">Cerai</option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <label>No HP</label>
-      <input type="text" name="no_hp" class="form-control" required>
-    </div>
-    <button type="submit" class="btn btn-success">Simpan</button>
-    <a href="../pasien.php" class="btn btn-secondary">Kembali</a>
-  </form>
-</div>
-
-<?php include '../partials/footer.php'; ?>
+  </div>
+    
+  </body>
+  </html>
+  <?php include '../partials/footer.php'; ?>

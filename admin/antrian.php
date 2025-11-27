@@ -93,6 +93,11 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <a href="logic/antrian_update.php?id=<?= $row['id_antrian']; ?>&status=menunggu"
                        class="btn btn-sm btn-warning icon-btn" title="Batalkan ke Menunggu">↩️</a>
                   <?php endif; ?>
+
+                  <a href="logic/antrian_delete.php?id=<?= $row['id_antrian']; ?>"
+                       onclick="return confirm('Yakin ingin menghapus antrian ini?')"
+                       class="btn btn-sm btn-danger icon-btn" title="Hapus Antrian">🗑️</a>
+
                 </td>
               </tr>
             <?php endforeach; ?>

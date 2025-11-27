@@ -53,9 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // simpan
     $sql = "INSERT INTO pasien 
-            (no_pasien, NIK, nama_lengkap, tanggal_lahir, poli, Jenis_Kelamin, umur, alamat, status_pernikahan, no_hp) 
+            (no_pasien, NIK, nama_lengkap, tanggal_lahir, Jenis_Kelamin, umur, alamat, status_pernikahan, no_hp) 
             VALUES 
-            ('$no_pasien', '$NIK', '$nama_lengkap', '$tanggal_lahir', '$poli', '$Jenis_Kelamin', '$umur', '$alamat', '$status_pernikahan', '$no_hp')";
+            ('$no_pasien', '$NIK', '$nama_lengkap', '$tanggal_lahir', '$Jenis_Kelamin', '$umur', '$alamat', '$status_pernikahan', '$no_hp')";
 
     if (mysqli_query($conn, $sql)) {
         header("Location: ../ambilantrian.php?msg=Antrian berhasil diambil. Nomor pasien: $no_pasien");

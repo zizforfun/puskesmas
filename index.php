@@ -13,11 +13,9 @@
 <?php include 'component/navbar.php'; ?>
 <body>
 
-<!-- Hero Section dengan Ilustrasi -->
 <section class="landing d-flex align-items-center">
   <div class="container p-5">
     <div class="row">
-      <!-- Kiri: Teks dan Tombol -->
       <div class="col-md-6 d-flex flex-column justify-content-center">
         <h1 class="fw-bold text-success mb-3">Kami Peduli Kesehatan Anda</h1>
         <p class="text-muted mb-4">Layanan antrian cepat, akurat, dan ramah pasien</p>
@@ -27,7 +25,6 @@
         </div>
       </div>
 
-      <!-- Kanan: Gambar dan Shape -->
       <div class="col-md-6 position-relative text-center">
         <div class=""></div>
         <img src="gambar/Gemini_Generated_Image_frrdknfrrdknfrrd-removebg-preview.png" alt="Ilustrasi Dokter" class="gambar-dokter" style="max-height: 1000px; z-index: 2;">
@@ -36,14 +33,11 @@
   </div>
 </section>
 
-<!-- Info Poli dengan Bootstrap Icons -->
 <section class="features py-5 bg-white">
   <div class="container">
     <h3 class="text-center fw-bold text-success mb-5">Layanan Poli Kami</h3>
 
     <div class="row text-center">
-
-      <!-- Poli Anak -->
       <div class="col-md-4 mb-4">
         <div class="card h-100 shadow-sm border-0 p-4">
           <div class="icon-wrapper bg-danger bg-opacity-10 text-danger mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width:90px; height:90px; margin:auto;">
@@ -54,7 +48,6 @@
         </div>
       </div>
 
-     <!-- Poli Gigi -->
      <div class="col-md-4 mb-4">
        <div class="card h-100 shadow-sm border-0 p-4">
          <div class="icon-wrapper bg-warning bg-opacity-25 text-warning mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width:90px; height:90px; margin:auto;">
@@ -65,7 +58,6 @@
         </div>
      </div>
 
-      <!-- Poli Umum -->
       <div class="col-md-4 mb-4">
         <div class="card h-100 shadow-sm border-0 p-4">
           <div class="icon-wrapper bg-info bg-opacity-10 text-info mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width:90px; height:90px; margin:auto;">
@@ -80,7 +72,6 @@
   </div>
 </section>
 
-
 <section class="cta text-white py-5">
   <div class="container text-center">
     <h4 class="fw-bold mb-2">Butuh Bantuan Darurat?</h4>
@@ -90,7 +81,6 @@
   </div>
 </section>
 
-<!-- Lokasi Klinik -->
 <section class="py-5 bg-light">
   <div class="container">
     <h3 class="fw-bold text-success text-center mb-4">Lokasi Klinik Kami</h3>
@@ -118,10 +108,6 @@
     </div>
   </div>
 </section>
-
-
-
-
 
 <?php include 'component/footer.php'; ?>
 
