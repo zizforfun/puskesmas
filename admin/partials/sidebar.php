@@ -7,6 +7,7 @@
       <a href="pasien.php" class="list-group-item list-group-item-action">Data Pasien</a>
       <a href="antrian.php" class="list-group-item list-group-item-action">Data Antrian</a>
       <a href="poli.php" class="list-group-item list-group-item-action">Jenis Poli</a>
+       <a href="riwayat_antrian.php" class="list-group-item list-group-item-action">Riwayat Antrian</a>
       <a href="users.php" class="list-group-item list-group-item-action">Manajemen User</a>
     </div>
   </div>
